@@ -19,9 +19,9 @@ Each athlete contributed multiple testing sessions over time. For modeling purpo
 * Testing was looked at by athlete's not rows
 Defining “Rehabilitation Plateau”
 An athlete was classified as reaching a plateau if either:
-1. ** Peak quadriceps LSI never reached ≥ 90% 
+1. **Peak quadriceps LSI never reached ≥ 90% 
 OR
-2. ** The final three testing visits demonstrated < 5% improvement in LSI
+2. **The final three testing visits demonstrated < 5% improvement in LSI
 This definition captures both:
 * Failure to reach clinically accepted symmetry benchmarks
 * Stalled longitudinal progression
@@ -37,12 +37,12 @@ Through Exploratory Data Analysis (EDA), we identified a critical clinical gap. 
 ## **Analytical Approach**
 A logistic regression model was used to examine whether early strength metrics were associated with later plateau classification.
 Predictors
-    •    Quadriceps LSI (early window average)
-    •    Absolute Quadriceps Torque (Nm/kg, early window average)
+* Quadriceps LSI (early window average)
+* Absolute Quadriceps Torque (Nm/kg, early window average)
 Outcome
-    •    Plateau (binary: yes/no)
+* Plateau (binary: yes/no)
 Evaluation
-    •    In-sample ROC-AUC
+* In-sample ROC-AUC
 Because of the small sample size (n = 18; 3 plateau cases), results should be interpreted as exploratory relationships rather than validated predictive performance.
 
 
@@ -56,17 +56,17 @@ These findings suggest that early absolute strength may provide more clinically 
 
 
 ## **Important Limitations**
-    •    Small sample size (n = 18)
-    •    Only 3 plateau cases (class imbalance)
-    •    Performance metrics reflect in-sample fit
-    •    No external validation cohort
+* Small sample size (n = 18)
+* Only 3 plateau cases (class imbalance)
+* Performance metrics reflect in-sample fit
+* No external validation cohort
 Because of the limited number of athletes, this project should be used as a pilot longitudinal analysis intended to generate hypotheses for future, larger-scale studies.
 
 ## **Clinical Implications**
 This analysis supports the concept that:
-    •    Symmetry alone may mask inadequate strength
-    •    Absolute torque should be monitored early post-operatively
-    •    Early weakness may identify athletes at risk for stagnation
+* Symmetry alone may mask inadequate strength
+* Absolute torque should be monitored early post-operatively
+* Early weakness may identify athletes at risk for stagnation
 These findings warrant further investigation in larger groups.
 
 ### **Repository Structure**
