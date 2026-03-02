@@ -1,4 +1,4 @@
-### ACL-Rehab-Plateau-Prediction
+# ACL-Rehab-Plateau-Modeling
 ## Early quadriceps strength as an indicator of stagnation of rehabilitation after ACL reconstruction
 
 ### **Project Overview** 
@@ -13,7 +13,7 @@ Dataset
 
 * Design: Longitudinal repeated-measures dataset
 * Observations: 350+ total rehabilitation visits
-* Prediction Window: Early rehabilitation (0–60 days post-op)
+* Evaluation Window: Early rehabilitation (0–60 days post-op)
 * Minimum inclusion: ≥14 days post-operative
 Each athlete contributed multiple testing sessions over time. For modeling purposes:
 * Testing was looked at by athlete's not rows
@@ -36,21 +36,21 @@ Through Exploratory Data Analysis (EDA), we identified a critical clinical gap. 
 
 ## **Analytical Approach**
 A logistic regression model was used to examine whether early strength metrics were associated with later plateau classification.
-Predictors
+Features
 * Quadriceps LSI (early window average)
 * Absolute Quadriceps Torque (Nm/kg, early window average)
 Outcome
 * Plateau (binary: yes/no)
 Evaluation
 * In-sample ROC-AUC
-Because of the small sample size (n = 18; 3 plateau cases), results should be interpreted as exploratory relationships rather than validated predictive performance.
+Due to small sample size (n = 18; 3 plateau cases), results should be interpreted as exploratory relationships rather than validated predictive performance.
 
 
 ### **Key Findings**
 
-* **Model Improvement:** Moving from an LSI-only baseline to a Multivariate model (LSI + Torque) increased predictive accuracy from 0.59 AUC to 0.71 AUC.
+* **Model Improvement:** Moving from an LSI-only baseline to a Multivariate model (LSI + Torque) within the sample AUC increased from 0.59 to 0.71.
 * **Clinical Threshold:** Athletes falling below 6.79 Nm/kg of torque/BW in the first 60 days are significantly more likely to plateau.
-* **Feature Importance:** Torque was found to be the dominant predictor, with a coefficient of -0.212 compared to LSI's near-zero impact in the combined model.
+* **Feature Importance:** Torque was found to be the most influencial feature, with a coefficient of -0.212 compared to LSI's near-zero impact in the combined model.
 
 These findings suggest that early absolute strength may provide more clinically useful signal than symmetry metrics alone.
 
