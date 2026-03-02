@@ -19,9 +19,9 @@ Each athlete contributed multiple testing sessions over time. For modeling purpo
 * Testing was looked at by athlete's not rows
 Defining “Rehabilitation Plateau”
 An athlete was classified as reaching a plateau if either:
-1. **Peak quadriceps LSI never reached ≥ 90% 
+1. Peak quadriceps LSI never reached ≥ 90% 
 OR
-2. **The final three testing visits demonstrated < 5% improvement in LSI
+2. The final three testing visits demonstrated < 5% improvement in LSI
 This definition captures both:
 * Failure to reach clinically accepted symmetry benchmarks
 * Stalled longitudinal progression
