@@ -1,5 +1,5 @@
-# ACL-Rehab-Plateau-Prediction
-##Early quadriceps strength as an indicator of stagnation of rehabilitation after ACL reconstruction
+### ACL-Rehab-Plateau-Prediction
+## Early quadriceps strength as an indicator of stagnation of rehabilitation after ACL reconstruction
 
 ### **Project Overview** 
 This practicum project investigates whether early-stage quadriceps strength metrics can help identify athletes at risk of a rehabilitation "plateau" following ACL reconstruction.
