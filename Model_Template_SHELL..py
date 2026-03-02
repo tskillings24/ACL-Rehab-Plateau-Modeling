@@ -9,7 +9,7 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
 
-# ACL REHAB PLATEAU PREDICTION: MODEL SHELL
+# ACL REHAB PLATEAU Modeling: MODEL SHELL
 # NOTE: This shell uses MOCK DATA to demonstrate model logic while 
 # protecting athlete privacy. The original analysis used a master 
 # dataset of 18 athletes with longitudinal isokinetic data.
@@ -36,7 +36,7 @@ y = df_shell['Plateau']
 
 #FIT MULTIVARIATE LOGISTIC REGRESSION
 #This matches the final model architecture from the project.
-model_multi = LogisticRegression()
+model_multi = LogisticRegression(random_state=42)
 model_multi.fit(X, y)
 
 #PERFORMANCE
@@ -52,6 +52,6 @@ print("CLINICAL INTERPRETATION:")
 print(f"LSI Coefficient: {model_multi.coef_[0][0]:.4f}")
 print(f"Torque Coefficient: {model_multi.coef_[0][1]:.4f}")
 print("-" * 40)
-print("Research Finding: Absolute Torque (Nm/kg) is the primary")
-print("driver in predicting long-term rehab plateaus.")
+print("Research Finding: Absolute Torque (Nm/kg) can be noted as")
+print("Most influencial feature in this exploritory model.")
 
