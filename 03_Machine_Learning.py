@@ -90,7 +90,7 @@ print(analysis_df.groupby('Plateau')[['Quad_LSI_Surgical', 'Quad_Torque_Surgical
 
 
 
-# We calculate the mean values for our key metrics to observe initial differences between the 'Plateau' and 'Progressing' groups. Notably, jump metrics (SL_Vert) are largely absent in the 0–60 day window, confirming they are unsuitable for early prediction.
+# We calculate the mean values for our key metrics to observe initial differences between the 'Plateau' and 'Progressing' groups. Notably, jump metrics (SL_Vert) are largely absent in the 0–60 day window, confirming they are unsuitable for as features in the model.
 
 # In[70]:
 
@@ -106,12 +106,13 @@ non_plateau_torque = analysis_df[analysis_df['Plateau'] == False]['Quad_Torque_S
 print("Torque T-Test:", ttest_ind(plateau_torque, non_plateau_torque, equal_var=False))
 
 
-# We first test LSI (relative symmetry) and Torque (absolute strength) individually for the quad. Traditional LSI models often fail to identify "weak but symmetric" athletes. Our goal is to see which metric provides a cleaner "signal" for prediction.
+# We first test LSI (relative symmetry) and Torque (absolute strength) individually for the quad. Traditional LSI models often fail to identify "weak but symmetric" athletes. Our goal is to see which metric provides a cleaner "signal" of plateau trends.
 
-# We perform an independent t-test to determine if early-stage LSI significantly differs between groups. A high p-value (0.60) suggests that LSI alone is a noisy and unreliable early predictor of long-term success.
+# We perform an independent t-test to determine if early-stage LSI significantly differs between groups. A high p-value (0.60) suggests that early LSI is a noisy and does not reliably associate with long-term success.
 
-# # Predictive Modeling: From Baseline to Multivariate
-# We compare traditional symmetry models against absolute force models. While LSI is the standard, our results show that absolute Torque provides a better predictive signal.
+# # Exploritory Modeling: From Baseline to Multivariate
+# We compare traditional symmetry models against absolute force models. While LSI is the standard, our results show that absolute Torque has clearer assocaition with rehabilitation of plateau status than LSI in this dataseset.
+
 
 # In[87]:
 
@@ -120,7 +121,7 @@ print("Torque T-Test:", ttest_ind(plateau_torque, non_plateau_torque, equal_var=
 ml_df_lsi = analysis_df.dropna(subset=['Quad_LSI_Surgical'])
 X_lsi = ml_df_lsi[['Quad_LSI_Surgical']]
 y_lsi = ml_df_lsi['Plateau'].astype(int)
-model_lsi = LogisticRegression().fit(X_lsi, y_lsi)
+model_lsi = LogisticRegression(random_state=42).fit(X_lsi, y_lsi)
 lsi_auc = roc_auc_score(y_lsi, model_lsi.predict_proba(X_lsi)[:,1])
 
 # Calculate the LSI Threshold (The 'danger zone' for PTs)
@@ -128,7 +129,7 @@ lsi_auc = roc_auc_score(y_lsi, model_lsi.predict_proba(X_lsi)[:,1])
 thresholdLSI = -model.intercept_[0] / model.coef_[0][0]
 thresholdLSI
 print(f"LSI Baseline AUC: {lsi_auc:.4f}")
-print(f"LSI Prediction Threshold: {thresholdLSI:.2f}")
+print(f"LSI Classification Threshold: {thresholdLSI:.2f}")
 
 
 # In[89]:
@@ -144,7 +145,7 @@ t_stat, p_val = ttest_ind(torque_plateau, torque_non_plateau, equal_var=False)
 
 torque_threshold = -model_torque.intercept_[0] / model_torque.coef_[0][0]
 print(f"Torque Baseline AUC: {torque_auc:.4f}")
-print(f"Torque Prediction Threshold (Nm/kg): {torque_threshold:.2f}")
+print(f"Torque Classification Threshold (Nm/kg): {torque_threshold:.2f}")
 
 
 # The integration of absolute force metrics significantly outperformed the traditional symmetry-based approach, providing a more robust early-warning system for rehabilitation plateaus.
@@ -155,7 +156,7 @@ print(f"Torque Prediction Threshold (Nm/kg): {torque_threshold:.2f}")
 # FINAL MULTIVARIATE MODEL
 # Combining both yields the highest AUC (0.71)
 X_multi = ml_df[['Quad_LSI_Surgical', 'Quad_Torque_Surgical']]
-model_multi = LogisticRegression().fit(X_multi, y)
+model_multi = LogisticRegression(random_state=42).fit(X_multi, y)
 multi_auc = roc_auc_score(y, model_multi.predict_proba(X_multi)[:,1])
 
 print(f"Final Multivariate AUC: {multi_auc:.4f}")
@@ -164,10 +165,10 @@ print("LSI Coefficient:", model_multi.coef_[0][0])
 print("Torque Coefficient:", model_multi.coef_[0][1])
 
 
-# In the final multivariate model, the Torque Coefficient is the primary driver of the prediction.
+# In the final multivariate model, the Torque Coefficient was the most infleuncial feature.
 # 
-# Torque Coefficient (-0.212): A strong negative relationship, meaning as absolute strength increases, the probability of a plateau significantly decreases.
+# Torque Coefficient (-0.212): A strong negative relationship, meaning as absolute strength is associated with a lower probability of a plateau within the dataset.
 # 
-# LSI Coefficient (0.018): A near-zero value, suggesting that once absolute strength is accounted for, symmetry adds very little extra predictive power early in rehab.
+# LSI Coefficient (0.018): A near-zero value, suggesting that once absolute strength is accounted for, symmetry adds very little extra explanitory information early in rehab.
 
 # The "LSI Trap" Confirmed: Our model proves that an agjusted Torque is a much more reliable early indicator of success than LSI. Athletes may achieve high symmetry by detraining their "healthy" leg, but they cannot "fake" absolute torque, making it the superior metric for clinical decision-making.
