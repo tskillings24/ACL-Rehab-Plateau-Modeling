@@ -3,7 +3,7 @@
 
 # # ACL Practicum: Data Cleaning & Preprocessing
 # Research Context: This script prepares longitudinal athlete data for analysis. Following global survey insights, we are prioritizing columns involving objective force and power metrics.
-# Objective: Clean raw clinical exports and calculate surgical-leg specific metrics to identify early predictors of rehabilitation plateaus.
+# Objective: Clean raw clinical exports and calculate surgical-leg specific metrics to identify early indicators of rehabilitation plateaus.
 
 # In[274]:
 
@@ -61,7 +61,7 @@ df.info(10)
 
 
 # Create Surgical-side specific columns based on 'Surgery Side' column
-# This aligns with the "absolute vs relative" analysis required for our predictive model
+# This aligns with the "absolute vs relative" analysis required for our model
 
 # Quadriceps Symmetry (Relative Metric)
 df['Quad_LSI_Surgical'] = np.where(df['Surgery Side'] == 'R', df['Quad LSI R'], df['Quad LSI L'])
@@ -83,7 +83,7 @@ df['SL_Vert_LSI_Surgical'] = np.where(df['SL LSI R'] == 'R', df['SL LSI R'], df[
 df_clean = df.dropna(subset=["Days_Post_Op", "Athlete ID"]).copy()
 
 
-# Saving the standardized dataset for Exploratory Data Analysis (EDA) and Machine Learning. The resulting CleanACL.csv contains normalized surgical metrics ready for plateau prediction.
+# Saving the standardized dataset for Exploratory Data Analysis (EDA) and Machine Learning. The resulting CleanACL.csv contains normalized surgical metrics ready for plateau analysis.
 
 # In[281]:
 
