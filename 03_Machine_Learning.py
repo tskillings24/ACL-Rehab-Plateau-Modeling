@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Machine Learning: Predicting ACL Rehabilitation Plateaus
-# Objective: Develop a predictive model to identify athletes at risk of a "rehabilitation plateau" using early-stage data (up to 60 days post-op). Following recent survey data highlighting the importance of objective testing, we focus on both relative symmetry (LSI) and adjusted torque (Nm/kg).
+# # Machine Learning: Analysis of ACL Rehabilitation Plateaus
+# Objective: Develop an exporitory model to assess the athletes at risk of a "rehabilitation plateau" using early-stage data (up to 60 days post-op). Following recent survey data highlighting the importance of objective testing, we focus on both relative symmetry (LSI) and adjusted torque (Nm/kg).
 
 # In[66]:
 
