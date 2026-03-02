@@ -9,25 +9,25 @@ This study is exploratory and hypothesis-generating in nature.
 
 Dataset
 
-    •    Participants: 18 post-ACL reconstruction athletes
-    
-    •    Design: Longitudinal repeated-measures dataset
-    •    Observations: 350+ total rehabilitation visits
-    •    Prediction Window: Early rehabilitation (0–60 days post-op)
-    •    Minimum inclusion: ≥14 days post-operative
+* Participants: 18 post-ACL reconstruction athletes
+
+* Design: Longitudinal repeated-measures dataset
+* Observations: 350+ total rehabilitation visits
+* Prediction Window: Early rehabilitation (0–60 days post-op)
+* Minimum inclusion: ≥14 days post-operative
 Each athlete contributed multiple testing sessions over time. For modeling purposes:
-    •    testing was looked at by athlete's not rows
+* Testing was looked at by athlete's not rows
 Defining “Rehabilitation Plateau”
 An athlete was classified as reaching a plateau if either:
-    1    Peak quadriceps LSI never reached ≥ 90% 
+1. ** Peak quadriceps LSI never reached ≥ 90% 
 OR
-    2    The final three testing visits demonstrated < 5% improvement in LSI
+2. ** The final three testing visits demonstrated < 5% improvement in LSI
 This definition captures both:
-    •    Failure to reach clinically accepted symmetry benchmarks
-    •    Stalled longitudinal progression
+* Failure to reach clinically accepted symmetry benchmarks
+* Stalled longitudinal progression
 Final cohort distribution:
-    •    Plateau: 3 athletes
-    •    Progressing: 15 athletes
+* Plateau: 3 athletes
+* Progressing: 15 athletes
 
 
 ### **The "LSI Trap"**
