@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Exploratory Data Analysis: Identifying Rehab Patterns
-# Objective: Examine athlete’s longitudinal testing data and identify data sparsity. This builds a needed foundation for our data that we can create a recovery timeline for our predictive model.
+# Objective: Examine athlete’s longitudinal testing data and identify data sparsity. This builds a needed foundation for our data that we can create a recovery timeline for our model.
 
 # In[173]:
 
@@ -69,9 +69,9 @@ plt.show()
 # In[193]:
 
 
-# Sparsity Check: Visualizing missingness in key predictive features
+# Sparsity Check: Visualizing missingness in key features
 # High sparsity in jump metrics (SL_Vert) confirms they are better as 'Outcome' metrics
-# rather than 'Early Predictors' due to clinical clearance timelines.
+# rather than 'features due to clinical clearance timelines.
 metrics_of_interest = ['Quad_LSI_Surgical', 'Quad_Torque_Surgical', 'Ham90_Torque_Surgical', 'SL_Vert_LSI_Surgical', 'Days_Post_Op']
 plt.figure(figsize=(10, 4))
 sns.heatmap(df[metrics_of_interest].isna(), cbar=False, cmap='viridis')
@@ -88,9 +88,9 @@ plt.title("Correlation Matrix of Key Metrics")
 plt.show()
 
 
-# This heatmap allows us to inspect for multicollinearity between our key metrics. While Quad LSI and Quad Torque are strongly correlated (0.73), they are not redundant, confirming that each provides distinct predictive value for identifying rehab plateaus.
+# This heatmap allows us to inspect for multicollinearity between our key metrics. While Quad LSI and Quad Torque are strongly correlated (0.73), they are not redundant, confirming that each provides distinct value for identifying rehab plateaus.
 
-# We categorize the timeline into Early, Mid, and Late phases to analyze how strength profiles evolve. There will be no "pre op" visits or visits within two weeks of surgery due to previous cleaning. This categorization is necissary for defining our 0–60 day "Early Rehab" window for the predictive model.
+# We categorize the timeline into Early, Mid, and Late phases to analyze how strength profiles evolve. There will be no "pre op" visits or visits within two weeks of surgery due to previous cleaning. This categorization is necissary for defining our 0–60 day "Early Rehab" window for the model.
 
 # In[195]:
 
