@@ -8,7 +8,9 @@ While return-to-play decisions often rely heavily on Limb Symmetry Index (LSI), 
 This study is exploratory and hypothesis-generating in nature.
 
 Dataset
+
     •    Participants: 18 post-ACL reconstruction athletes
+    
     •    Design: Longitudinal repeated-measures dataset
     •    Observations: 350+ total rehabilitation visits
     •    Prediction Window: Early rehabilitation (0–60 days post-op)
