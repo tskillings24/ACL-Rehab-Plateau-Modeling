@@ -88,3 +88,4 @@ python Model_Template_SHELL.py
 This will execute the Logistic Regression pipeline and output a logic-check AUC score.
 
 
+See practicum_paper.pdf for full references.
