@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 # Load dataset
-df = pd.read_csv('ACL Master Longitudinal.csv')
+df = pd.read_csv('acl_practicum_data.csv')
 
 
 
@@ -89,5 +89,5 @@ df_clean = df.dropna(subset=["Days_Post_Op", "Athlete ID"]).copy()
 
 
 # Export cleaned data for the next stage of the pipeline
-df_clean.to_csv('CleanACL.csv')
+df_clean.to_csv('acl_practicum_data_clean.csv')
 
