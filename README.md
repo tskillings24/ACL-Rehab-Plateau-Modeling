@@ -71,21 +71,39 @@ These findings warrant further investigation in larger groups.
 
 ### **Repository Structure**
 
-1. **`01_Data_Cleaning.py`**: Data processing, date handling, and $\ge 14$-day post-op filtering.
-2. **`02_EDA_Visuals.py`**: Exploratory visualizations and correlation analysis, generates the "LSI vs. Torque" scatter plot and correlation heatmaps.
-3. **`03_Machine_Learning.py`**: The core logistic regression models and threshold calculations
-4. **`Model_Template_SHELL.py`**: A functional script using *mock data to demonstrate code logic while protecting athlete privacy.
+1.**`Code/`** Python scripts that replicate the full workflow of the project:
+   - **`Practicum Cleaning-Final-Copy1-2.py`** – Data preprocessing, date handling, and filtering of early post-operative testing windows.
+   - **`Practicum EDA-Final-Copy1.py`** – Exploratory data analysis including summary statistics, correlation analysis, and visualization generation (e.g., LSI vs. Torque scatterplots).
+   - **`Practicum AUC Log Model-Final-Copy1-2.py`** – Logistic regression models used to analyze rehabilitation plateaus and calculate risk thresholds.
 
-### **How to Use**
+2.  **`Data/`**   Contains a small synthetic dataset (`ACL Master Longitudinal.csv`) used to demonstrate the analysis pipeline while protecting athlete privacy.
+   
+4. **`Figures/`**  
+   Visual outputs generated during exploratory analysis
 
-To verify the machine learning logic without access to the private master dataset, please run:
+5. **`docs/`**  
+   Project documentation, including the full practicum report.
+
+---
+
+### How to Use
+
+To verify the analysis pipeline without access to the private master dataset, run the scripts in the following order:
 
 ```bash
-python Model_Template_SHELL.py
-
+python Practicum Cleaning-Final-Copy1-2.py
+python Practicum EDA-Final-Copy1.py
+python Practicum AUC Log Model-Final-Copy1-2.py
 ```
 
-This will execute the Logistic Regression pipeline and output a logic-check AUC score.
+The scripts will load the example dataset in the **Data/** folder and reproduce the core workflow used in the project, including the exploratory analysis and machine learning model.
 
+---
 
-See practicum_paper.pdf for full references.
+### Full Report
+
+For full methodology, background research, and discussion of results, see:
+
+```
+docs/Practicum_paper.pdf
+```
